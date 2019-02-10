@@ -7,7 +7,7 @@ const Pet = () => {
 }
 
 const App = () => {
-    return React.createElement("div", {},[
+    return React.createElement("div", {}, [
         React.createElement('h1', {}, 'Adopt me!'),
         React.createElement(Pet),
         React.createElement(Pet),
@@ -15,4 +15,4 @@ const App = () => {
     ])
 }     
 
-ReactDom.render(React.createElement(App), document.getElementById('root'))   
+ReactDOM.render(React.createElement(App), document.getElementById('root'))   
