@@ -1,119 +1,123 @@
 import React from 'react';
-import pf, { ANIMALS } from 'petfinder-client'; 
-
-const petfinder = pf({
-    key: process.env.API_KEY,
-    secret: process.env.API_SECRET
-});
+import { navigate } from "@reach/router";
+import SearchBox from "./SearchBox";
 
 
 class SearchParams extends React.Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.handleLocationChange = this.handleLocationChange.bind(this);
-        this.handleAnimalChange = this.handleAnimalChange.bind(this);
-        this.handleBreedChange = this.handleBreedChange.bind(this);
+        // this.handleLocationChange = this.handleLocationChange.bind(this);
+        // this.handleAnimalChange = this.handleAnimalChange.bind(this);
+        // this.handleBreedChange = this.handleBreedChange.bind(this);
 
-        this.state = {
-            location: 'New York City, NY',
-            animal: '',
-            breed: '',
-            breeds: []
-        };
-    };
+    //     this.state = {
+    //         location: 'New York City, NY',
+    //         animal: '',
+    //         breed: '',
+    //         breeds: []
+    //     };
+    // };
 
-    handleLocationChange(event) {
-        this.setState({
-            location: event.target.value
-        });
-    };
-    handleAnimalChange(event) {
-        this.setState({
-            animal: event.target.value,
-            breed: ""
-        },
-        this.getBreeds
-        );
-    };
-    handleBreedChange(event) {
-        this.setState({
-            breed: event.target.value
-        });
+    // handleLocationChange(event) {
+    //     this.setState({
+    //         location: event.target.value
+    //     });
+    // };
+    // handleAnimalChange(event) {
+    //     this.setState({
+    //         animal: event.target.value,
+    //         breed: ""
+    //     },
+    //     this.getBreeds
+    //     );
+    // };
+    // handleBreedChange(event) {
+    //     this.setState({
+    //         breed: event.target.value
+    //     });
+    // }
+
+
+
+    // getBreeds() {
+    //     if (this.state.animal) {
+    //         petfinder.breed.list({ animal: this.state.animal })
+    //             .then(data => {
+    //                 if (
+    //                     data.petfinder &&
+    //                     data.petfinder.breeds &&
+    //                     Array.isArray(data.petfinder.breeds.breed)
+    //                 ) {
+    //                     this.setState({
+    //                         breeds: data.petfinder.breeds.breed
+    //                     })
+    //                 } else {
+    //                     this.setState({ breeds: [] });
+    //                 }
+    //             })
+    //     } else {
+    //         this.setState({ breeds: [] })
+    //     }
+    // };
+    search() {
+        navigate('/');
     }
 
-
-
-    getBreeds() {
-        if (this.state.animal) {
-            petfinder.breed.list({ animal: this.state.animal })
-                .then(data => {
-                    if (
-                        data.petfinder &&
-                        data.petfinder.breeds &&
-                        Array.isArray(data.petfinder.breeds.breed)
-                    ) {
-                        this.setState({
-                            breeds: data.petfinder.breeds.breed
-                        })
-                    } else {
-                        this.setState({ breeds: [] });
-                    }
-                })
-        } else {
-            this.setState({ breeds: [] })
-        }
-    };
-    
     render() {
         return (
-            <div className="search-params">
-                <label htmlFor="location">
-                    Location
-                    <input
-                        onChange={this.handleLocationChange}
-                        id="location"
-                        value={this.state.location}
-                        placeholder="location"
-                    />
-                </label>
+            <div className="search-route">
+        <SearchBox search={this.search} />
+      </div>
+        
+        // return (
+        //     <div className="search-params">
+        //         <label htmlFor="location">
+        //             Location
+        //             <input
+        //                 onChange={this.handleLocationChange}
+        //                 id="location"
+        //                 value={this.state.location}
+        //                 placeholder="location"
+        //             />
+        //         </label>
                 
-                <label htmlFor="animal">
-                    Animals
-                    <select
-                        id="animal"
-                        value={this.state.animal}
-                        onChange={this.handleAnimalChange}
-                        onBlur={this.handleAnimalChange}>
-                        <option />
-                        {ANIMALS.map(animal => (
-                            <option key={animal} value={animal}>
-                                {animal}
-                            </option>
-                        ))}
-                    </select>
+        //         <label htmlFor="animal">
+        //             Animals
+        //             <select
+        //                 id="animal"
+        //                 value={this.state.animal}
+        //                 onChange={this.handleAnimalChange}
+        //                 onBlur={this.handleAnimalChange}>
+        //                 <option />
+        //                 {ANIMALS.map(animal => (
+        //                     <option key={animal} value={animal}>
+        //                         {animal}
+        //                     </option>
+        //                 ))}
+        //             </select>
                         
-                </label>
+        //         </label>
                 
-                <label htmlFor="breed">
-                    breed
-                <select
-                        id="breed"
-                        value={this.state.breed}
-                        onChange={this.handleBreedChange}
-                        onBlur={this.handleBreedChange}
-                        disabled={!this.state.breeds.length}
-                    >
-                        <option />
-                        {this.state.breeds.map(breed => (
-                            <option key={breed} value={breed}>
-                                {breed}
-                        </option>    
-                    ))}    
-                </select>        
-                </label>
-                <button>Submit</button>
-            </div>
+        //         <label htmlFor="breed">
+        //             breed
+        //         <select
+        //                 id="breed"
+        //                 value={this.state.breed}
+        //                 onChange={this.handleBreedChange}
+        //                 onBlur={this.handleBreedChange}
+        //                 disabled={!this.state.breeds.length}
+        //             >
+        //                 <option />
+        //                 {this.state.breeds.map(breed => (
+        //                     <option key={breed} value={breed}>
+        //                         {breed}
+        //                 </option>    
+        //             ))}    
+        //         </select>        
+        //         </label>
+        //         <button>Submit</button>
+        //     </div>
         );
     }
 
