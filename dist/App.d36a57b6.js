@@ -28822,18 +28822,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var SearchParams =
+var Search =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(SearchParams, _React$Component);
+  _inherits(Search, _React$Component);
 
-  function SearchParams() {
-    _classCallCheck(this, SearchParams);
+  function Search() {
+    _classCallCheck(this, Search);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SearchParams).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Search).apply(this, arguments));
   }
 
-  _createClass(SearchParams, [{
+  _createClass(Search, [{
     key: "search",
     // constructor(props) {
     //     super(props);
@@ -28944,10 +28944,10 @@ function (_React$Component) {
     }
   }]);
 
-  return SearchParams;
+  return Search;
 }(_react.default.Component);
 
-var _default = SearchParams;
+var _default = Search;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./SearchBox":"SearchBox.js"}],"App.js":[function(require,module,exports) {
 "use strict";

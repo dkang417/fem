@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import SearchBox from "./SearchBox";
 
 
-class SearchParams extends React.Component {
+class Search extends React.Component {
     // constructor(props) {
     //     super(props);
 
@@ -123,4 +123,4 @@ class SearchParams extends React.Component {
 
 }
 
-export default SearchParams;
+export default Search;

@@ -6,13 +6,16 @@ class Search extends React.Component {
 
     constructor(props) {
         super(props);
-        this.handleFormSubmit= this.handleFormSubmit.bind(this);
+
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
+
 
   handleFormSubmit (event) {
     event.preventDefault();
     this.props.search();
-  };
+    };
+    
   render() {
     return (
       <Consumer>
